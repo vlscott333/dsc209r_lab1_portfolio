@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<navigation>
-    <ul>
-        <li><a href="projects/index.html">Projects</a></li>
-        <li><a href="contact/index.html">Contact</a></li>
-        <li><a href="Resume/index.html">Resume</a></li>
-        <li><a href="https://github.com/vlscott333" target="_blank">Github</a></li>
-    </ul>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Vanessa Scott: Personal Site and Portfolio </title>
-    <h1> Vanessa Scott </h1>
-    <p> Hi, my name is Vanessa Scott and I am a 2nd year masters student at the University of California, San Diego (UCSD)
-        I am currently enrolled in the Data Science program and will graduate in April of 2026.
-        Outside of my academic program, I am a Staff Research Supervisor at a psychiatry lab at UCSD.
-    In my free time I enjoy going to the farmer's market, trying new coffee shops and taking my dogs on adventures. Below, is an image of my older dog, Lemon, on his birthday.</p>
-</head> <link rel="stylesheet" href="style.css" />
-<img
-  loading="lazy"
-  width="500"
-  height="500"
-  sizes="auto, (max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
-  srcset="
-  images/IMG_9122.jpeg" 200w    
-  "
-  src="IMG_9122.jpeg 200w"
-  alt="A white and tan pitbull dog in a birthday hat with a birthday treat" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanessa Scott: Personal Site and Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
 <body>
-    
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects/index.html">Projects</a></li>
+      <li><a href="contact/index.html">Contact</a></li>
+      <li><a href="Resume/index.html">Resume</a></li>
+      <li><a href="https://github.com/vlscott333" target="_blank">Github</a></li>
+    </ul>
+  </nav>
+
+   <h1>Vanessa Scott</h1>
+
+    <p>
+    Hi, my name is Vanessa Scott and I am a 2nd year master's student at the University of California, San Diego (UCSD).
+    I am currently enrolled in the Data Science program and will graduate in April of 2026.
+    Outside of my academic program, I am a Staff Research Supervisor at a psychiatry lab at UCSD.
+    In my free time I enjoy going to the farmer's market, trying new coffee shops and taking my dogs on adventures.
+    Below is an image of my older dog, Lemon, on his birthday.
+  </p>
+
+  <img
+    loading="lazy"
+    width="500"
+    height="500"
+    src="images/IMG_9122.jpeg"
+    alt="A white and tan pitbull dog in a birthday hat with a birthday treat"
+    />
+<script>
+  // Add "current" class to nav link that matches the current URL
+  (function(){
+    const currentPath = location.pathname.replace(/\/$/, ""); // normalize
+    document.querySelectorAll("nav a").forEach(a => {
+      const linkPath = new URL(a.href, location.origin).pathname.replace(/\/$/, "");
+      if (linkPath === currentPath) {
+        a.classList.add("current");
+      }
+    });
+  })();
+</script>
+
+
 </body>
 </html>
+    </article>
+    <footer>
+        <p> &copy; 2025 Vanessa Scott </p>
+    </footer>

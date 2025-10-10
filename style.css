@@ -1,0 +1,160 @@
+html{
+  --color-accent: oklch(65.4% 0.22483 1.84);
+  accent-color: var(--color-accent);
+}
+
+:root{
+  --nav-sep: #cfcfcf;      
+  --nav-accent: #444141;   
+}
+
+body {
+  max-width: 150ch;            
+  margin-inline: max(0.1em, (75% - 100ch) / 2);
+  padding: 3ch;          
+}
+
+
+/* remove list visuals */
+nav ul,
+nav li {
+  display: contents;
+}
+
+
+nav {
+  display: flex;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid var(--nav-sep);
+  border-bottom: 1px solid oklch(80% 3% 200); 
+}
+
+
+nav a {
+  flex: 1;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.6rem 0;                
+  font-weight: 600;
+  border-bottom: 0.4em solid transparent;
+  transition: background-color .18s, border-color .18s;
+}
+
+/* subtle hover */
+nav a:hover {
+  background: rgba(0,0,0,0.03);
+  border-bottom-color: var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+nav a.current {
+  border-bottom-color: var(--nav-accent);
+  border-bottom-color: oklch(70% 4% 220); 
+}
+
+
+form,
+form label,
+form input,
+form textarea,
+form button {
+  font: inherit; /* match site font */
+  color: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr; /* labels auto-width */
+  gap: 1em;
+  max-width: 600px; 
+  margin-inline: auto; 
+  align-items: center;
+}
+
+
+form label {
+  grid-column: 1; 
+  text-align: left;
+  font-weight: bold;
+}
+
+
+form input,
+form textarea,
+form button {
+  grid-column: 2;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.3em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.3em;
+}
+
+
+form input[type="submit"],
+form input[type="reset"] {
+  grid-column: 1 / -1;
+  justify-self; right: ; 
+  width: auto;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 0.3em 1.0em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+  background-color: oklch(from var(--color-accent) 60% 40% h);
+}
+
+
+/* === Responsive Grid Layout === */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.5rem;
+
+}
+
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid; 
+  grid-row: span 3;             
+  gap: 1em;                     
+  margin: 0;                    
+}
+
+
+.projects h2 {
+  margin: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;          
+  text-wrap: balance;        
+}
+
+
+h1 {
+  font-size: 400%;          
+}
+
+.Resume {
+  max-width: 42em;           
+  margin-inline: auto;       
+  padding: 2em;              
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 0.5em;
+  box-shadow: 0 0 1em rgba(0,0,0,0.1); 
+  background-color: oklch(98% 1% 220); 
+  font-size: 1.1em;         
+  line-height: 1.5;             
+}

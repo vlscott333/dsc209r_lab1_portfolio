@@ -1,12 +1,27 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanessa Scott: Personal Site and Portfolio</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+
+<body>
+
+
+  <nav>
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/projects/index.html">Projects</a></li>
+    <li><a href="/contact/index.html">Contact</a></li>
+    <li><a href="/Resume/index.html">Resume</a></li>
+    <li><a href="https://github.com/vlscott333" target="_blank" rel="noopener">Github</a></li>
+  </ul>
+</nav>
+
 <h1> Resume Page </h1>
 
-<nav>
-    <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="../contact/index.html">Projects</a></li>
-        <li><a href="https://github.com/vlscott333" target="_blank">Github</a></li>
-    </ul>
+  </nav>
 
     <h1> Vanessa Scott </h1>
     <section>
@@ -25,7 +40,7 @@
                     <li>Built structured data tracking systems for 3+ longitudinal mental health studies focused on identifying high-risk individuals using advanced Excel logic and real-time monitoring tools.</li> 
                     <li> Monitored key study metrics (adherence, dropout, engagement) and flagged risks using data-driven indicators tied to grant milestones. </li> 
                     <li>Collaborate on a domain-specific LLM chatbot for novel exploratory psychiatric measure.</li>
-</body>
+
             <h4> Staff Research Scientist II, UCSD Psychiatry Department, July 2022 - June 2023 </h4>
                 <body> <li>Led data management and analysis for multiple large-scale psychiatric research projects, ensuring data integrity and compliance with regulatory standards.</li>
                     <li>Developed and implemented advanced statistical models to analyze complex datasets, contributing to the publication of research findings in peer-reviewed journals.</li>
@@ -57,3 +72,19 @@
             <li> Data Visualization: Matplotlib, Seaborn, Plotly </li>
             <li> Tools: Jupyter Notebooks, Git/GitHub, Excel </li>
         </ul>
+
+
+        <script>
+  // Highlight current navigation link automatically
+  (function() {
+    const currentPath = location.pathname.replace(/\/$/, ""); // remove trailing slash
+    document.querySelectorAll("nav a").forEach(a => {
+      const linkPath = new URL(a.href).pathname.replace(/\/$/, "");
+      if (linkPath === currentPath) {
+        a.classList.add("current");
+      }
+    });
+  })();
+</script>
+
+</body>

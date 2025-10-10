@@ -1,25 +1,58 @@
-<h1> Contact Page </h1>
-<nav>
-    <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../projects/index.html">Projects</a></li>
-        <li><a href="../Resume/index.html">Resume</a></li>
-        <li><a href="https://github.com/vlscott333" target="_blank">Github</a></li>
-    </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanessa Scott: Personal Site and Portfolio</title>
+  <link rel="stylesheet" href="/style.css" />
 
+</head>
+
+<body>
+
+
+<nav>
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/projects/index.html">Projects</a></li>
+    <li><a href="/contact/index.html">Contact</a></li>
+    <li><a href="/Resume/index.html">Resume</a></li>
+    <li><a href="https://github.com/vlscott333" target="_blank" rel="noopener">Github</a></li>
+  </ul>
+</nav>
+
+
+<h1>Contact Page</h1>
 
 <form action="mailto:vascott@ucsd.edu" method="post" enctype="text/plain">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
 
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
 
-    <label for="subject">Subject:</label><br>
-    <input type="text" id="subject" name="subject" required><br><br>
+  <label for="subject">Subject:</label>
+  <input type="text" id="subject" name="subject" required>
 
-    <label for="message">Body:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
+  <label for="message">Body:</label>
+  <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
 </form>
+
+
+
+<script>
+  // Highlight current navigation link automatically
+  (function() {
+    const currentPath = location.pathname.replace(/\/$/, ""); // remove trailing slash
+    document.querySelectorAll("nav a").forEach(a => {
+      const linkPath = new URL(a.href).pathname.replace(/\/$/, "");
+      if (linkPath === currentPath) {
+        a.classList.add("current");
+      }
+    });
+  })();
+</script>
+
+
+</body>
