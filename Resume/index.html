@@ -74,17 +74,8 @@
         </ul>
 
 
-        <script>
-  // Highlight current navigation link automatically
-  (function() {
-    const currentPath = location.pathname.replace(/\/$/, ""); // remove trailing slash
-    document.querySelectorAll("nav a").forEach(a => {
-      const linkPath = new URL(a.href).pathname.replace(/\/$/, "");
-      if (linkPath === currentPath) {
-        a.classList.add("current");
-      }
-    });
-  })();
-</script>
+
+<script type="module" src="../global.js"></script>
+
 
 </body>

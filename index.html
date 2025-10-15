@@ -35,18 +35,9 @@
     src="images/IMG_9122.jpeg"
     alt="A white and tan pitbull dog in a birthday hat with a birthday treat"
     />
-<script>
-  // Add "current" class to nav link that matches the current URL
-  (function(){
-    const currentPath = location.pathname.replace(/\/$/, ""); // normalize
-    document.querySelectorAll("nav a").forEach(a => {
-      const linkPath = new URL(a.href, location.origin).pathname.replace(/\/$/, "");
-      if (linkPath === currentPath) {
-        a.classList.add("current");
-      }
-    });
-  })();
-</script>
+
+
+<script type="module" src="../global.js"></script>
 
 
 </body>
