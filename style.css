@@ -61,13 +61,13 @@ form label,
 form input,
 form textarea,
 form button {
-  font: inherit; /* match site font */
+  font: inherit; 
   color: inherit;
 }
 
 form {
   display: grid;
-  grid-template-columns: auto 1fr; /* labels auto-width */
+  grid-template-columns: auto 1fr; 
   gap: 1em;
   max-width: 600px; 
   margin-inline: auto; 
@@ -157,4 +157,34 @@ h1 {
   background-color: oklch(98% 1% 220); 
   font-size: 1.1em;         
   line-height: 1.5;             
+}
+
+html {
+  color-scheme: light dark;   
+  background-color: Canvas;   
+  color: CanvasText;          
+}
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+
+/* place the colorscheme switcher at the topright*/
+.color-scheme {
+  position: absolute;   
+  top: 1rem;           
+  right: 1rem;          
+  font-size: 80%;       
+  font-family: inherit; 
+  padding-bottom: 5px; 
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;       
+  color: inherit;       
 }
