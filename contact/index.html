@@ -1,38 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanessa Scott: Personal Site and Portfolio</title>
-  <link rel="stylesheet" href="/style.css" />
 
+  
+  <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
+  <h1>Contact Page</h1>
 
+  <form action="mailto:vascott@ucsd.edu" method="post" enctype="text/plain">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
 
-<h1>Contact Page</h1>
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
 
-<form action="mailto:vascott@ucsd.edu" method="post" enctype="text/plain">
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
+    <label for="message">Body:</label>
+    <textarea id="message" name="message" rows="4" cols="50" required></textarea>
 
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
 
-  <label for="subject">Subject:</label>
-  <input type="text" id="subject" name="subject" required>
+  <footer>
+    <p>&copy; 2025 Vanessa Scott</p>
+  </footer>
 
-  <label for="message">Body:</label>
-  <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-
-  <input type="submit" value="Submit">
-  <input type="reset" value="Reset">
-</form>
-
-
-<link rel="stylesheet" href="style.css">
-<script type="module" src="global.js"></script>
-
-
-
+  
+  <script type="module" src="../global.js"></script>
 </body>
+</html>
