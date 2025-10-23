@@ -127,11 +127,30 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
 
   for (const project of projects) {
     const article = document.createElement("article");
-    article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image || ""}" alt="${project.title || "Project image"}">
-      <p>${project.description || "No description available."}</p>
-    `;
+    // Handle relative URLs intelligently
+    let projectURL = project.url || "";
+
+// Handle relative URLs correctly for both local and GitHub Pages
+if (projectURL && !projectURL.startsWith("http")) {
+  // Always prefix with BASE_PATH (so it works on GitHub Pages too)
+  projectURL = BASE_PATH + projectURL;
+}
+
+const titleHTML = project.url
+  ? `<a href="${projectURL}">${project.title}</a>`
+  : project.title;
+
+
+const imageHTML = project.url
+  ? `<a href="${project.url}"><img src="${project.image || ""}" alt="${project.title || "Project image"}"></a>`
+  : `<img src="${project.image || ""}" alt="${project.title || "Project image"}">`;
+
+article.innerHTML = `
+  <${headingLevel}>${titleHTML}</${headingLevel}>
+  ${imageHTML}
+  <p>${project.description || "No description available."}</p>
+`;
+
     containerElement.appendChild(article);
   }
 }

@@ -1,5 +1,11 @@
 [
     {
+        "title": "Persuasive Visualization Report",
+         "image": "projects/project2/imagesp2/thumbnail.png",
+        "description": "An analysis of persuasive design in data visualization.",
+        "url": "projects/project2/index.html"
+    },
+    {
         "title": "DSC209R, Expository Analysis Data Visualization",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
