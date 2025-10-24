@@ -6,9 +6,41 @@
   <title>Persuasive Visualization Report – Vanessa Scott</title>
   <link rel="stylesheet" href="../../style.css" />
 <style>
+
   header {
     text-align: center;
   }
+  .project-images {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center both images */
+  gap: 1.5rem;              /* reduce spacing slightly */
+  margin-top: 2rem;
+}
+
+.project-images img {
+  max-width: 1500px;         /* slightly smaller than before */
+  width: 100%;               /* ensures responsiveness */
+  height: auto;
+  display: block;
+  margin: 0 auto;           /* centers image */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-images figure {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.project-images figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
 </style>
 </head>
 
@@ -19,12 +51,94 @@
     <h2>
      DSC209R: Project 2
     </h2>
-    <h1>Persuasive Visualization Report</h1>
+    <h1>Persuasive or Deceptive Visualization?</h1>
 
     <p><strong>Vanessa Scott</strong> — <em>vascott@ucsd.edu</em></p>
   </header>
   
-  <main> ... [your sections here] ... </main>
+  <main>  
+  <section class="project-images">
+  <h2>Proposition 1: All U.S. states have access to abortive care via clinics</h2>
+      <figure>
+        <figcaption></figcaption>
+    <img src="imagesp2/prop2.png" alt="Visualization 1: Deceptive Visualization" />
+  </figure>
+  <section><h3>Design Choices and Rationale</h3>
+    <p> <ul>
+    <li> Deception Score (-2); I used selective binning to create a map to flatten contrast and squash large differentiations which translates to more unanimous access. This made a more continuos variable look binary (yes/no) and that all states have access.</li>
+    <li> Deception Score (-1.5); I used a annotated box to list to display states that have at least 1 clinic to sway the observer</li>
+    <li> Deception Score (-1); I used broad sweeping language for titles and annotations</li>
+    </ul>
+    
+    </p>
+
+</section>
+
+  <h2>Proposition 2: The majority of Americans lack geographical access to abortive care</h2>
+    <figure>
+        <figcaption></figcaption>
+    <img src="imagesp2/prop1.png" alt="Visualization 1: Example chart" />
+  </figure>
+    <section><h3>Design Choices and Rationale</h3>
+    <p> <ul>
+    <li> Deception Score (+2); I used a continuous color scale so color was directly representative of percentages depicting a more accurate level of clinic access. I also added a black border to each state to help clearly define each state and highlight its color differentiation from its neighbors.</li>
+    <li> Deception Score (-0.5); I used a list to display states that have >20% counties with clinics to show the disparity. This could be equally deceptive or persuasive in that it provides category of what to consider as "low-access"</li>
+    <li> Deception Score (-1); I used a pointed title with emotional-charge and provided a analytical summary in annotation that provides the reader with an interpretation.</li>
+     <li> Deception Score (+0.5); I used small images to highlight the states with notable high-ratios of clinics to drive home the pointed title. It is visually rooted in truths about the data and adds a memorable encoding for geographical locations associated with more clinics.</li>
+    </ul>
+    </p>
+
+   
+
+<section aria-labelledby="title-prop-reflection" style="max-width: 900px; margin: 0 auto; line-height: 1.6;">
+  <h2 id="title-prop-reflection" style="margin-bottom: 0.25rem;">
+    Reflection on Persuasion vs. Deception in Abortion Access Visualizations
+  </h2>
+  <p style="margin-top: 0; color: #555;">
+    Course Assignment • Final Write-Up
+  </p>
+
+  <h3>Proposition 1 (Opposing Map): “Every state has access to clinics.”</h3>
+  <p>
+    This assignment was challenging to execute because I found it difficult to manipulate the data into deceptive formats.
+    For Proposition 1, the data manipulation was the most challenging component rather than the visual itself.
+    The approach that felt easiest to sway interpretation was using declarative statements that guide viewers’ conclusions.
+    I also included a selective list of states,usin targeted filtering—to support the narrative that all states have access to clinics.
+    While it is technically true that every state has at least one clinic, the reality of access is far more nuanced.
+    An attentive viewer might recognize that having a clinic does not necessarily equate to equitable or convenient access.
+    It amazed me how small refinements between the two visualizations could lead viewers to interpret the data in vastly different ways.
+
+  </p>
+
+  <h3>Proposition 2 (Truth-oriented Map): “Most Americans lack convenient geographical access.”</h3>
+  <p>
+    For Proposition 2, I saw how easily persuasive techniques can slip into design when the goal is to convince.
+    In this visualization, the map itself offers an earnest depiction by using a continuous color spectrum to highlight variation in clinic access.
+    However, the title is more emotionally charged and uses leading language such as “safe havens.”
+    Even though the map represents the data truthfully, some design choices—though accurate—could still be considered selective or persuasive.
+    For example, I explicitly defined “low access” in the annotation and included supporting statistics to steer the narrative rather than letting viewers form their own interpretations.
+  </p>
+
+  <h3>Overall Reflection</h3>
+  <p>
+    My key takeaway is that persuasiveness can easily overlap with deception.
+    As data stewards and communicators, we hold substantial power to frame narratives, and no two analysts may approach the same problem identically.
+    There is a time and place for persuasive language and strong visuals—such as in business contexts or advertising—but even there, ethical boundaries must be respected.
+    By contrast, in public policy, academic reporting, and journalism, persuasion should be minimized to preserve integrity and trust.
+  </p>
+  <p>
+    Ultimately, it can be difficult to recognize when we are being persuasive versus deceptive.
+    Maintaining ethical awareness should be a continual process—both in reviewing our own work and in collaborating with peers—
+    to ensure our visualizations and analyses communicate as close to the ground truth as possible.
+  </p>
+</section>
+
+
+
+   </main>
+
+  
+
 
   <footer>
     <p>© 2025 Vanessa Scott</p>

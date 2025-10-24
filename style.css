@@ -131,6 +131,16 @@ form input[type="reset"]:hover {
   margin: 0;                    
 }
 
+.projects img {
+  width: 100%;
+  max-width: 300px;   /* adjust to taste */
+  height: auto;
+  display: block;
+  margin: 1em auto;
+  border-radius: 8px;
+  object-fit: cover;  /* keeps proportions clean even if resized */
+}
+
 
 .projects h2 {
   margin: 0;
