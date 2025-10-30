@@ -2,122 +2,91 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 import { fetchJSON, renderProjects } from "../global.js";
 
 async function initProjects() {
-  // fetch projects data
-  const projects = await fetchJSON("../lib/projects.json");
+  const allProjects = await fetchJSON("../lib/projects.json");
   const projectsContainer = document.querySelector(".projects");
-  renderProjects(projects, projectsContainer, "h2");
+  renderProjects(allProjects, projectsContainer, "h2");
 
   const titleEl = document.querySelector(".projects-title");
-  if (titleEl) titleEl.textContent = `(${projects.length})`;
+  if (titleEl) titleEl.textContent = `(${allProjects.length})`;
 
-  
   let query = "";
-  let selectedIndex = -1;
+  let selectedYear = null;
 
-  // containers
   const svg = d3.select("#projects-pie-plot");
   const legend = d3.select(".legend");
   const searchInput = document.querySelector(".searchBar");
 
+  // Build pie once using full dataset
+  const rolled = d3.rollups(allProjects, v => v.length, d => d.year);
+  const data = rolled.map(([year, count]) => ({ label: year, value: count }));
+  const colors = d3.scaleOrdinal(d3.schemeTableau10);
+  const arcGen = d3.arc().innerRadius(0).outerRadius(50);
+  const pie = d3.pie().value(d => d.value);
+  const arcData = pie(data);
 
-  if (svg.empty() || legend.empty()) return;
+  // Draw wedges
+  const paths = svg.selectAll("path")
+    .data(arcData)
+    .join("path")
+    .attr("d", arcGen)
+    .attr("fill", d => colors(d.index))
+    .attr("cursor", "pointer");
 
-  //  renderPieChart function
-  function renderPieChart(filteredProjects) {
-    // Clear old chart and legend
-    svg.selectAll("*").remove();
-    legend.selectAll("*").remove();
+  // Draw legend
+  const legendItems = legend.selectAll("li")
+    .data(data)
+    .join("li")
+    .attr("style", (_, i) => `--color:${colors(i)}`)
+    .html(d => `<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
 
-    // aggregate projects by year
-    const rolled = d3.rollups(filteredProjects, v => v.length, d => d.year);
-    const data = rolled.map(([year, count]) => ({ label: year, value: count }));
+  // Helper to render filtered projects
+  function renderFilteredProjects() {
+    let filtered = allProjects;
 
-   
-    const colors = d3.scaleOrdinal(d3.schemeTableau10);
-    const arcGen = d3.arc().innerRadius(0).outerRadius(50);
-    const pie = d3.pie().value(d => d.value);
-    const arcData = pie(data);
-
-    // wedges
-    const paths = svg
-      .selectAll("path")
-      .data(arcData)
-      .join("path")
-      .attr("d", arcGen)
-      .attr("fill", (d) => colors(d.index))
-      .attr("cursor", "pointer");
-
-    // legend
-    const legendItems = legend
-      .selectAll("li")
-      .data(data)
-      .join("li")
-      .attr("style", (_, i) => `--color:${colors(i)}`)
-      .html(d => `<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
-
-    // updateSelection function
-    function updateSelection() {
-      paths.attr("class", d => (d.index === selectedIndex ? "selected" : null));
-      legendItems.attr("class", (_d, i) => (i === selectedIndex ? "selected" : null));
-
-      // filter visible projects by year when a slice is selected
-      if (selectedIndex === -1) {
-        renderProjects(filteredProjects, projectsContainer, "h2");
-      } else {
-        const selectedYear = data[selectedIndex].label;
-        const yearFiltered = filteredProjects.filter(p => p.year === selectedYear);
-        renderProjects(yearFiltered, projectsContainer, "h2");
-      }
+    // Search filter
+    if (query.trim()) {
+      filtered = filtered.filter(p =>
+        Object.values(p).join(" ").toLowerCase().includes(query.toLowerCase())
+      );
     }
 
-    // click handler
-    paths.on("click", (event, d) => {
-      selectedIndex = selectedIndex === d.index ? -1 : d.index;
-      updateSelection();
-    });
-
-    // legend click mirrors slice behavior
-    legendItems.on("click", function () {
-      const i = legendItems.nodes().indexOf(this);
-      selectedIndex = selectedIndex === i ? -1 : i;
-      updateSelection();
-    });
-  }
-
-
-  function applyFilters() {
-    let filtered = projects;
-
-    // search filter
-    if (query.trim() !== "") {
-      filtered = filtered.filter(project => {
-        const values = Object.values(project).join("\n").toLowerCase();
-        return values.includes(query.toLowerCase());
-      });
-    }
-
-    // year filter
-    if (selectedIndex !== -1) {
-      const rolled = d3.rollups(projects, v => v.length, d => d.year);
-      const data = rolled.map(([year, count]) => ({ label: year, value: count }));
-      const selectedYear = data[selectedIndex]?.label;
+    // Year filter
+    if (selectedYear) {
       filtered = filtered.filter(p => p.year === selectedYear);
     }
 
     renderProjects(filtered, projectsContainer, "h2");
-    renderPieChart(filtered);
   }
 
-  // search input listener
+  // Handle wedge click
+  paths.on("click", (event, d) => {
+    const clickedYear = data[d.index].label;
+    selectedYear = selectedYear === clickedYear ? null : clickedYear;
+
+    // Update visual selection
+    paths.classed("selected", d2 => data[d2.index].label === selectedYear);
+    legendItems.classed("selected", li => li.label === selectedYear);
+
+    renderFilteredProjects();
+  });
+
+  // Handle legend click (mirror behavior)
+  legendItems.on("click", function (_, d) {
+    selectedYear = selectedYear === d.label ? null : d.label;
+
+    paths.classed("selected", d2 => data[d2.index].label === selectedYear);
+    legendItems.classed("selected", li => li.label === selectedYear);
+
+    renderFilteredProjects();
+  });
+
+  // Search handler
   if (searchInput) {
-    searchInput.addEventListener("input", event => {
-      query = event.target.value.toLowerCase();
-      applyFilters();
+    searchInput.addEventListener("input", e => {
+      query = e.target.value.toLowerCase();
+      renderFilteredProjects();
     });
   }
-
-  // initial render
-  renderPieChart(projects);
 }
 
 initProjects();
