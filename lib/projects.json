@@ -1,4 +1,10 @@
-[
+[    {
+        "title": "DSC209R: Dynamic Visuals using D3",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description" : "A dynamic visual graphic using a cosmetic sephora dataset.",
+        "url": "projects/project3/index.html"
+    },
     {
         "title": "Deceptive vs. Persuasive Visualization",
         "year": "2025",
