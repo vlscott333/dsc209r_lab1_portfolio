@@ -127,33 +127,40 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
 
   for (const project of projects) {
     const article = document.createElement("article");
-    // Handle relative URLs intelligently
+
+    // Handle relative URLs correctly for both local and GitHub Pages
     let projectURL = project.url || "";
+    if (projectURL && !projectURL.startsWith("http")) {
+      projectURL = BASE_PATH + projectURL;
+    }
 
-// Handle relative URLs correctly for both local and GitHub Pages
-if (projectURL && !projectURL.startsWith("http")) {
-  // Always prefix with BASE_PATH (so it works on GitHub Pages too)
-  projectURL = BASE_PATH + projectURL;
-}
+    // Title and image logic (unchanged)
+    const titleHTML = project.url
+      ? `<a href="${projectURL}">${project.title}</a>`
+      : project.title;
 
-const titleHTML = project.url
-  ? `<a href="${projectURL}">${project.title}</a>`
-  : project.title;
+    const imageHTML = project.url
+      ? `<a href="${projectURL}"><img src="${project.image || ""}" alt="${project.title || "Project image"}"></a>`
+      : `<img src="${project.image || ""}" alt="${project.title || "Project image"}">`;
 
+    // 🆕 Wrap description + year inside a container to prevent overlap
+    const infoHTML = `
+      <div class="project-info">
+        <p>${project.description || "No description available."}</p>
+        ${project.year ? `<p class="project-year">${project.year}</p>` : ""}
+      </div>
+    `;
 
-const imageHTML = project.url
-  ? `<a href="${project.url}"><img src="${project.image || ""}" alt="${project.title || "Project image"}"></a>`
-  : `<img src="${project.image || ""}" alt="${project.title || "Project image"}">`;
-
-article.innerHTML = `
-  <${headingLevel}>${titleHTML}</${headingLevel}>
-  ${imageHTML}
-  <p>${project.description || "No description available."}</p>
-`;
+    article.innerHTML = `
+      <${headingLevel}>${titleHTML}</${headingLevel}>
+      ${imageHTML}
+      ${infoHTML}
+    `;
 
     containerElement.appendChild(article);
   }
 }
+
 
 export async function fetchGitHubData(username) {
   // Reuse your existing fetchJSON helper to get the GitHub API response

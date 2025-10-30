@@ -1,7 +1,8 @@
 [
     {
         "title": "Deceptive vs. Persuasive Visualization",
-         "image": "projects/project2/imagesp2/prop2.png",
+        "year": "2025",
+        "image": "projects/project2/imagesp2/prop2.png",
         "description": "An analysis of using deceptive vs. persuasive design in data visualization.",
         "url": "projects/project2/index.html"
     },

@@ -199,6 +199,120 @@ select {
   color: inherit;       
 }
 
+/* SVG pie demo */
+#projects-pie-plot {
+  max-width: 20em;    /* keeps it from getting huge */
+  width: 100%;        /* responsive */
+  aspect-ratio: 1;    /* keep it square in modern browsers */
+  display: block;     
+  margin-block: 2em;  /* top/bottom spacing */
+  margin-inline: auto;/* center horizontally */
+  overflow: visible;  /* show anything that might extend outside */
+}
+
+
+/* === Pie chart and legend container === */
+.chart-container {
+  display: flex;
+  align-items: center;      /* vertically center align legend and chart */
+  justify-content: center;  /* center them horizontally in the section */
+  gap: 2em;                 /* spacing between chart and legend */
+  flex-wrap: wrap;          /* ✅ allows wrapping on smaller screens */
+  margin: 2em auto;
+  max-width: 60em;
+}
+
+/* Make SVG chart scale responsively */
+#projects-pie-plot {
+  flex: 0 0 auto;          /* keep its intrinsic size */
+  max-width: 20em;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+}
+
+/* Make legend fill available width */
+.legend {
+  flex: 1;                 /* ✅ take up remaining horizontal space */
+  min-width: 15em;
+}
+
+/* PIE + LEGEND */
+#projects-pie-plot path {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Hover effect */
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.6;
+}
+
+/* Legend layout */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.8em;
+  margin-top: 1em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.9em;
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  border-radius: 3px;
+}
+
+/* Selected slice + legend */
+.selected {
+  --color: red !important;
+}
+
+.selected:is(path) {
+  fill: red !important;
+}
+
+/* === Pie Chart & Legend Interactivity === */
+
+/* Smooth transitions and pointer cursor */
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+/* Fade non-hovered slices slightly */
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+/* Highlight selected slice and legend entry */
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+/* Apply the selected color fill to SVG wedges */
+.selected:is(path) {
+  fill: var(--color);
+}
+
+/* Highlight selected legend entry text and swatch */
+.selected .swatch {
+  background-color: var(--color);
+  border: 2px solid var(--color);
+}
+
+
+
 
 #profile-stats dl {
   display: grid;
@@ -216,4 +330,18 @@ select {
 #profile-stats dd {
   grid-row: 2;
   margin: 0;
+}
+
+.project-info {
+  margin-top: 0.5rem;
+}
+
+.project-info p {
+  margin: 0.3rem 0;
+}
+
+.project-year {
+  color: #777;
+  font-size: 0.9rem;
+  font-style: italic;
 }
