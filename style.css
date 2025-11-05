@@ -406,3 +406,215 @@ svg:has(path:hover) path:not(:hover) {
   font-size: 0.9rem;
   font-style: italic;
 }
+
+
+/* META Stats section */
+.stats {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.4em 1em;
+  margin-block: 2em;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.stats dt {
+  font-weight: bold;
+  color: var(--text-strong, #333);
+}
+
+.stats dd {
+  margin: 0;
+  color: var(--text-muted, #555);
+}
+
+.stats abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+
+/* Gridline styling */
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.4;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  display: none;
+}
+
+/* Optional: time-of-day gradient effect */
+.gridlines line:nth-child(odd) {
+  stroke: #cce5ff; /* lighter blue (night hours) */
+}
+
+.gridlines line:nth-child(even) {
+  stroke: #ffe5b4; /* soft orange (daytime hours) */
+}
+
+/* Info layout for tooltip and other dl lists */
+.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.3em 0.8em;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 8px;
+  width: max-content;
+  font-family: system-ui, sans-serif;
+}
+
+.info dt {
+  font-weight: bold;
+  color: #555;
+}
+
+.info dd {
+  margin: 0;
+  color: #222;
+}
+
+/* Tooltip positioning */
+.tooltip {
+  position: fixed;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/* Dot hover effect */
+circle {
+  transition: transform 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+  fill: orange;
+}
+
+/* Tooltip Base Layout */
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25em 0.75em;
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #222;
+}
+
+/* Tooltip Container Styling */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  padding: 0.75em 1em;
+  max-width: 280px;
+  backdrop-filter: blur(4px);
+  transition: opacity 200ms ease-in-out;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Don’t block mouse events */
+  z-index: 10;
+}
+
+/* Tooltip Visible State (we’ll toggle this in JS later) */
+.tooltip.visible {
+  opacity: 1;
+}
+
+/* Labels in tooltip */
+.tooltip dt {
+  font-weight: 600;
+  color: #444;
+}
+
+.tooltip dd {
+  margin: 0;
+  color: #111;
+  word-break: break-word;
+}
+
+.tooltip a {
+  color: steelblue;
+  text-decoration: none;
+}
+
+.tooltip a:hover {
+  text-decoration: underline;
+}
+
+/* Hover animation for dots */
+circle {
+  transition: 200ms transform ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+circle.selected {
+  fill: #ff6b6b; /* red highlight */
+  stroke: #900;
+  stroke-width: 1.5px;
+  fill-opacity: 0.9;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+
+#selection-count {
+  margin-top: 1em;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+#selection-count {
+  margin-top: 1em;
+  font-weight: 500;
+  font-family: system-ui, sans-serif;
+  color: #333;
+}
+
+#language-breakdown {
+  margin-top: 0.5em;
+}
+
+#language-breakdown dt {
+  font-weight: bold;
+  color: #555;
+}
+
+#language-breakdown dd {
+  margin: 0 0 0.4em 0;
+  color: #222;
+}
+
+
+
+/* --- Step 5.3: Style the brushing selection rectangle --- */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 pattern shift */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;        /* light transparent blue fill */
+  fill: steelblue;
+  stroke: black;            /* outline color */
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;    /* dashed stroke pattern */
+  animation: marching-ants 2s linear infinite;
+  shape-rendering: crispEdges;
+}
+
