@@ -1,0 +1,183 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#map {
+  width: 90%;
+  height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  margin-top: 1em;
+}
+
+
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* render above the map */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* allows map panning/zooming through SVG */
+}
+
+#map svg circle {
+  fill: steelblue;
+  fill-opacity: 0.6;   /* makes overlap patterns visible */
+  stroke: white;
+  stroke-width: 1px;
+  pointer-events: auto; /* enables hover tooltips */
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  padding-bottom: 0.5em;
+}
+
+#time-label {
+  margin-left: auto;
+}
+
+#selected-time,
+#any-time {
+  display: block;
+  text-align: right;
+}
+
+#any-time {
+  color: #777;
+  font-style: italic;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#map svg circle {
+  fill: steelblue;
+  fill-opacity: 0.6;
+  stroke: white;
+  stroke-width: 1px;
+  pointer-events: auto; /* enables tooltips */
+}
+
+/* Title styling */
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding: 0.5em 1em;
+}
+
+/* Container for the time slider */
+#time-filter-container {
+  display: flex;
+  justify-content: flex-end; /* push it to the right */
+  align-items: center;
+  margin: 0 1em 0.5em 1em; /* spacing around */
+}
+
+/* Label and its children */
+#time-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* right align text/time */
+  text-align: right;
+  width: 400px; /* default slider width */
+}
+
+/* Make the slider visually longer and easier to grab */
+#time-slider {
+  width: 350px; /* adjust to taste: try 400–600px for extra length */
+  accent-color: #0078ff; /* blue theme */
+  cursor: pointer;
+}
+
+/* Time readout and (any time) label */
+#selected-time,
+#any-time {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 0.25em;
+}
+
+#any-time {
+  color: #777;
+  font-style: italic;
+}
+
+/* Map area */
+#map {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin-top: 0.5em;
+}
+
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* --- Legend and circle color logic --- */
+#map svg circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background-color: var(--color); /* for legend blocks */
+  fill: var(--color); /* for map circles */
+}
+
+/* --- Legend layout --- */
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-block: 3em;
+  gap: 1px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.legend > div {
+  flex: 1;
+  color: #fff;
+  padding: 0.4em 1em;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.legend > div:nth-child(1) { text-align: left; }
+.legend > div:nth-child(2) { text-align: center; }
+.legend > div:nth-child(3) { text-align: right; }

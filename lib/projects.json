@@ -1,4 +1,11 @@
-[    {
+[   {
+        "title": "Geospatial Visual Lab",
+        "year": "2025",
+        "image":  "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Lab for DSC209R.",
+        "url": "projects/geolab/index.html"
+    },
+     {
         "title": "DSC209R: Dynamic Visuals using D3",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
