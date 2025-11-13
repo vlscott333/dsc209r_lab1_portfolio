@@ -1,4 +1,12 @@
-[   {
+[   
+    {
+        "title": "DSC209R: Final Visual Project",
+        "year": "2025",
+        "image":  "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Final project for dsc209r",
+        "url": "projects/finalproject/index.html"
+    },
+    {
         "title": "Geospatial Visual Lab",
         "year": "2025",
         "image":  "https://vis-society.github.io/labs/2/images/empty.svg",
