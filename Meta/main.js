@@ -95,6 +95,38 @@ function renderScatterPlot(data, commits) {
 
   svg.append("g").attr("class", "dots");
 
+  // --- Axes (created ONCE here) ---
+const xAxis = d3.axisBottom(xScale);
+const yAxis = d3.axisLeft(yScale)
+  .tickFormat(d => String(d).padStart(2, "0") + ":00");
+
+svg.append("g")
+  .attr("class", "x-axis")
+  .attr("transform", `translate(0, ${height - margin.bottom})`)
+  .call(xAxis);
+
+svg.append("g")
+  .attr("class", "y-axis")
+  .attr("transform", `translate(${margin.left}, 0)`)
+  .call(yAxis);
+
+// Axis labels
+svg.append("text")
+  .attr("class", "x-axis-label")
+  .attr("x", width / 2)
+  .attr("y", height - 5)
+  .attr("text-anchor", "middle")
+  .text("Date of Commit");
+
+svg.append("text")
+  .attr("class", "y-axis-label")
+  .attr("x", -height / 2)
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("text-anchor", "middle")
+  .text("Hour of Day");
+
+
   updateScatterPlot(data, commits);
 }
 
@@ -106,6 +138,13 @@ function updateScatterPlot(data, commits) {
   const dots = svg.select(".dots");
 
   xScale.domain(d3.extent(commits, d => d.datetime));
+  // --- Update axes ---
+svg.select(".x-axis").call(d3.axisBottom(xScale));
+svg.select(".y-axis").call(
+  d3.axisLeft(yScale)
+    .tickFormat(d => String(d).padStart(2, "0") + ":00")
+);
+
 
   const rScale = d3.scaleSqrt()
     .domain(d3.extent(commits, d => d.totalLines))
