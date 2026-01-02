@@ -54,6 +54,21 @@
         "description": "Lab for DSC209R highlighting geospatial visualizations assessing biking commuter data using D3 and Mapbox API.",
         "url": "projects/geolab/index.html"
     },
+    {
+        "title": "Suicide Research Symposium| Safety Plan Recall Poster",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Understanding safety plan recall among adults with serious mental illness [Poster accepted]. Suicide Research Symposium, virtual.",
+        "url": "https://docs.google.com/document/d/e/2PACX-1vR-LhcbnXx6Jl2OzYcRuWeXiblhYx745-mRJ_s5Mf0i9L6VXW4irytDdS15j4lORobB9-S-9P9nkk6F/pub"
+    },
+    {
+        "title":"Springer Journal | Psychiatric Correlates and Effects of Brief Intervention",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Suicide safety plan self-knowledge in serious mental illness: psychiatric symptom correlates and effects of brief intervention [Accepted].",
+        "url":"https://link.springer.com/article/10.1007/s10597-023-01155-5"
+
+    },
         {
         "title": "Deceptive vs. Persuasive Visualization Project",
         "year": "2025",

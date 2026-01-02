@@ -99,6 +99,13 @@ nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
+/* Dark mode nav hover: boost contrast */
+html[data-theme="dark"] nav a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
 nav a.current {
   border-bottom-color: var(--nav-accent);
   border-bottom-color: oklch(70% 4% 220); 
