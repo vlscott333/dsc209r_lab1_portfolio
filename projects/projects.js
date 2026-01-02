@@ -2,8 +2,16 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 import { fetchJSON, renderProjects } from "../global.js";
 
 async function initProjects() {
-  const allProjects = await fetchJSON("../lib/projects.json");
   const projectsContainer = document.querySelector(".projects");
+  const allProjects = await fetchJSON("../lib/projects.json");
+
+  if (!Array.isArray(allProjects)) {
+    if (projectsContainer) {
+      projectsContainer.innerHTML = `<p class="inline-error">Projects failed to load. Please refresh.</p>`;
+    }
+    return;
+  }
+
   renderProjects(allProjects, projectsContainer, "h2");
 
   const titleEl = document.querySelector(".projects-title");

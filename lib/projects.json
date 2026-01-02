@@ -1,104 +1,64 @@
-[   
-    {
-        "title": "DSC209R: Final Visual Project",
+[   {
+        "title": "Competition Winning, 1st Place -- Big Data Analytics w/Spark: Wearable Stress and Affect Detection",
         "year": "2025",
-        "image":  "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Final project for dsc209r",
-        "url": "projects/finalproject/index.html"
+        "image": "images/wesad.jpeg",
+        "description": "This project won 1st place out of 27 groups for a Big Data Analytics Course at UCSD. The project uses Spark to explore robust time-series data to predict participants affective states based on their wearable (chest/wrist sensor) data.",
+        "url": "https://github.com/arv020/DSC232R_WESAD_Project"
     },
     {
-        "title": "Geospatial Visual Lab",
+        "title": "Converging Paths: An Exploration of Gender Differences in Education and the Life Path",
         "year": "2025",
-        "image":  "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lab for DSC209R.",
-        "url": "projects/geolab/index.html"
+        "image":  "images/unequal_worlds.jpeg",
+        "description": "Explores gamified data experience exploring World Bank Data for the years 1970-2020 highlighting gender differences in education across regions.",
+        "url": "https://msaw14905260.github.io/MTV-final-project/"
     },
-     {
-        "title": "DSC209R: Dynamic Visuals using D3",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description" : "A dynamic visual graphic using a cosmetic sephora dataset.",
-        "url": "projects/project3/index.html"
-    },
-    {
-        "title": "Deceptive vs. Persuasive Visualization",
-        "year": "2025",
-        "image": "projects/project2/imagesp2/prop2.png",
-        "description": "An analysis of using deceptive vs. persuasive design in data visualization.",
-        "url": "projects/project2/index.html"
-    },
-    {
-        "title": "DSC209R, Expository Analysis Data Visualization",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A data exploration and visualization project focusing on expository analysis techniques. This project aims to uncover insights from a grocery dataset through effective visual representation."
-    },
-    {
-        "title": "DSC209R, Deceptive Analysis Data Visualization",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A data exploration and visualization project focusing on deceptive analysis techniques. This project aims to manipulate visual representations to mislead or misinform viewers using a dataset focused on a controversial topic, abotrtion."
-    },
-    {
-        "title": "Big Data Analystics: Wearable Stress and Affect Detection",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Officiis nihil numquam deleniti consequatur adipisci facere natus tempora. Harum adipisci aperiam laborum cumque exercitationem, alias nostrum nisi rerum amet ipsum vel necessitatibus facere qui accusamus magnam quam. Dolor, ullam?"
-    },
-     {
-        "title": "Frontiers Psychology: Inertial Sensor Motor Detection in Infant Development.",
+{
+        "title": "Frontiers Psychology: A Contactless Method for Measuring Full-Day, Naturalistic Motor Behavior Using Wearable Inertial Sensors",
         "year": "2021",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Officiis nihil numquam deleniti consequatur adipisci facere natus tempora. Harum adipisci aperiam laborum cumque exercitationem, alias nostrum nisi rerum amet ipsum vel necessitatibus facere qui accusamus magnam quam. Dolor, ullam?"
+        "image": "images/frontiers.jpeg",
+        "description": "Here, we introduce and validate an alternative method that uses machine learning algorithms to classify infants' body position from a set of wearable inertial sensors.",
+        "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.701343/full"
     },
     {
         "title": "San Diego County Behavioral Health Outcomes 2022 Analysis",
-        "year": "2022",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-        {
-        "title": "Chapter 55: Geriatric Psychiatry -- 55.6h Technology for Seniors Kaplan and Sadock’s Comprehensive Textbook of Psychiatry, 11th edition (2025)",
         "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "image": "images/bx_health.jpeg",
+        "description": "This is a comprehensive project conducted in Fall of 2024, exploring an open source data set of behavioral health outcomes in San Diego county from the year 2022. In the project I show, data cleaning, data visualization, and k-nearest machine learning methods.",
+        "url": "https://github.com/vlscott333/sd_bx_2022/blob/main/ScottV_Final_Project_Fall2024.ipynb"
     },
+    {
+        "title": "Personalized Skincare Product Visual",
+        "year": "2025",
+        "image": "images/skincare.jpeg",
+        "description" : "A dynamic visual graphic using a cosmetic sephora dataset. Users can filter for product type, skin-type and cost range to explore products sold in Sephora.",
+        "url": "https://tatiii27.github.io/MTV1/?v=20251108"
+    },
+
         {
+        "title": "Chapter 55: Geriatric Psychiatry -- 55.6h Technology for Seniors",
+        "year": "2024",
+        "image": "images/kaplan.jpeg",
+        "description": "Exploring aging and technological advancements to support seniors mental health and well-being in a book chapter for Kaplan and Sadock’s Comprehensive Textbook of Psychiatry, 11th edition (2025)."
+    },
+    {
         "title": "Mobile Affect Coding",
         "year": "2020",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "image": "images/mobile_affect.jpeg",
+        "description": "Digital health; Ecological momentary assessment; Facial affect recognition; Mobile cognitive testing; Serious mental illness; Social motivation",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35444929/"
     },
         {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2020",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "title": "Geospatial Visual Lab",
+        "year": "2025",
+        "image":  "images/geospatial_lab.jpeg",
+        "description": "Lab for DSC209R highlighting geospatial visualizations assessing biking commuter data using D3 and Mapbox API.",
+        "url": "projects/geolab/index.html"
     },
         {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2021",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-            {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2018",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-            {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2019",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-            {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2018",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "title": "Deceptive vs. Persuasive Visualization Project",
+        "year": "2025",
+        "image": "projects/project2/imagesp2/prop2.png",
+        "description": "An analysis of using deceptive vs. persuasive design assessing abortion care data in the United States.",
+        "url": "projects/project2/index.html"
     }
-
 ]
-

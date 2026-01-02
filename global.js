@@ -11,7 +11,7 @@ let pages = [
   { url: "projects/", title: "Projects" },
   { url: "contact/", title: "Contact" },
   { url: "Resume/", title: "Resume" },
-  { url: "Meta/", title: "Meta" },
+  //{ url: "Meta/", title: "Meta" },
   { url: "https://github.com/vlscott333", title: "Github" }
 ];
 
@@ -95,24 +95,31 @@ if (schemeSelect) {
 
 // Helper function to apply the color scheme
 function updateColorScheme(value) {
-  if (value === "auto" || value === "light") {
-    document.documentElement.style.colorScheme = "light";
+  const root = document.documentElement;
+  const theme = value === "dark" ? "dark" : value === "light" ? "light" : "auto";
+  root.dataset.theme = theme;
+
+  if (theme === "dark") {
+    root.style.colorScheme = "dark";
   } else {
-    document.documentElement.style.colorScheme = "dark";
+    root.style.colorScheme = "light";
   }
 }
 
 export async function fetchJSON(url) {
   try {
-    // Fetch the JSON file from the given URL
-    const response = await fetch(url);
+    const isAbsolute = /^(https?:)?\/\//i.test(url) || url.startsWith("/");
+    // Let the browser resolve relative paths against the current page (works on home and /projects/)
+    const requestUrl = isAbsolute ? url : new URL(url, location.href).href;
+
+    const response = await fetch(requestUrl);
     if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
-      } 
-    const data = await response.json();
-    return data;}
-   catch (error) {
-    console.error('Error fetching or parsing JSON data:', error);
+      throw new Error(`Failed to fetch JSON: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching or parsing JSON data:", error);
+    return null;
   }
 }
 
@@ -140,9 +147,14 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
       ? `<a href="${projectURL}">${project.title}</a>`
       : project.title;
 
+    let imageSrc = project.image || "";
+    if (imageSrc && !imageSrc.startsWith("http") && !imageSrc.startsWith("/")) {
+      imageSrc = BASE_PATH + imageSrc;
+    }
+
     const imageHTML = project.url
-      ? `<a href="${projectURL}"><img src="${project.image || ""}" alt="${project.title || "Project image"}"></a>`
-      : `<img src="${project.image || ""}" alt="${project.title || "Project image"}">`;
+      ? `<a href="${projectURL}"><img src="${imageSrc}" alt="${project.title || "Project image"}"></a>`
+      : `<img src="${imageSrc}" alt="${project.title || "Project image"}">`;
 
     // 🆕 Wrap description + year inside a container to prevent overlap
     const infoHTML = `
@@ -164,6 +176,20 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
 
 
 export async function fetchGitHubData(username) {
-  // Reuse your existing fetchJSON helper to get the GitHub API response
-  return fetchJSON(`https://api.github.com/users/${username}`);
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}`, {
+      headers: {
+        Accept: "application/vnd.github+json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to fetch GitHub profile data:", error);
+    return null;
+  }
 }
